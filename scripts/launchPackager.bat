@@ -6,6 +6,7 @@
 @echo off
 title Metro Bundler
 call .packager.bat
-node "%~dp0..\cli.js" --reactNativePath ../ --projectRoot ../../../ start
+:: %1 is projectRoot from metro.config.js, passed in from react-native-cli
+node "%~dp0..\cli.js" --reactNativePath ../ --projectRoot %1 start
 pause
 exit

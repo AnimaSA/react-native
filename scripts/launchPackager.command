@@ -11,7 +11,8 @@ clear
 THIS_DIR=$(cd -P "$(dirname "$(readlink "${BASH_SOURCE[0]}" || echo "${BASH_SOURCE[0]}")")" && pwd)
 
 # shellcheck source=/dev/null
-. "$THIS_DIR/packager.sh"
+# $1 is projectRoot from metro.config.js, passed in by react-native-cli
+. "$THIS_DIR/packager.sh '$1'"
 
 if [[ -z "$CI" ]]; then
   echo "Process terminated. Press <enter> to close the window"
